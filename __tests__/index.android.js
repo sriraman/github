@@ -1,13 +1,28 @@
-import 'react-native';
-import React from 'react';
-import Index from '../index.android.js';
+import 'react-native'
+import React from 'react'
+import Home from '../app/containers/Home'
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 
+/**
+ * To Mock the native module
+ */
+jest.mock('Linking', () => {
+	return {
+		addEventListener: jest.fn(),
+		removeEventListener: jest.fn(),
+		openURL: jest.fn(),
+		canOpenURL: jest.fn(),
+		getInitialURL: jest.fn()
+	}
+})
+
+/**
+ * Home Page
+ */
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <Index />
-	).toJSON();
+	const tree = renderer.create(
+		<Home />
+	).toJSON()
 	expect(tree).toMatchSnapshot()
-});
+})
