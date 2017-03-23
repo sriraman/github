@@ -1,0 +1,30 @@
+{
+	"extends": "standard",
+	"parser": "babel-eslint",
+	"installedESLint": true,
+	"plugins": [
+		"standard",
+		"react"
+	],
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"rules": {
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"indent": [2, "tab"]
+	},
+	"settings": {
+		"react": {
+			"pragma": "React",  // Pragma to use, default to "React"
+			"version": "15.4" // React version, default to the latest React stable release
+		}
+	},
+	"globals": {
+		"fetch": false
+	}
+}
